@@ -1,0 +1,37 @@
+name: Rendu de la vidéo
+
+on:
+  push:
+    branches: [main]
+    paths: ["src/**", "public/**", "package.json", "pnpm-lock.yaml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  render:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - name: Bibliothèques nécessaires au navigateur de rendu
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libnss3 libdbus-1-3 libatk1.0-0 libgbm-dev libasound2 libxrandr2 libxkbcommon-dev libxfixes3 libxcomposite1 libxdamage1 libatk-bridge2.0-0 libpango-1.0-0 libcairo2 libcups2
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm render:landscape
+      - run: pnpm render:square
+      - run: pnpm render:vertical
+      - name: Publier les vidéos dans la release « video »
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release view video >/dev/null 2>&1 || gh release create video --title "Vidéo TeeboStudio" --notes "Derniers rendus de la vidéo, mis à jour à chaque modification."
+          gh release upload video out/teebostudio-16x9.mp4 out/teebostudio-1x1.mp4 out/teebostudio-9x16.mp4 --clobber
