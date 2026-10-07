@@ -3,9 +3,9 @@
   "private": true,
   "scripts": {
     "studio": "remotion studio",
-    "render:vertical": "remotion render Vertical out/teebostudio-9x16.mp4",
-    "render:square": "remotion render Square out/teebostudio-1x1.mp4",
-    "render:landscape": "remotion render Landscape out/teebostudio-16x9.mp4"
+    "render": "node render.mjs",
+    "render:site": "node render.mjs site",
+    "render:social": "node render.mjs social"
   },
   "dependencies": {
     "@remotion/cli": "^4.0.529",
