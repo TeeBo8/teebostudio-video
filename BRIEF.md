@@ -33,6 +33,8 @@ Les codes du site : fond sombre chaud (ou crème en thème clair), terracotta, c
 - Pas de musique : la vidéo est muette (décision du 2026-10-07).
 - Formulation imposée : « Membre du programme Claude Startups », jamais « partenaire » ni « certifié ».
 
-## À faire ensuite
+## Version du site sur téléphone
 
-- Version d'une minute pour les réseaux.
+Sur un écran de téléphone, la version paysage est illisible : le site y affiche la version carrée. Le nom est visible dès la première image, qui sert d'image d'attente.
+
+Pas de version d'une minute pour les réseaux (décision du 2026-10-07).

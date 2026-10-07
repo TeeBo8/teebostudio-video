@@ -42,15 +42,13 @@ const useLayout = () => {
   };
 };
 
-// Fond commun à tous les plans : la colonne bordée et les filets du site
+// Fond commun à tous les plans : la colonne bordée et les filets du site, fixes (la vidéo tourne en boucle)
 const Grid: React.FC = () => {
   const t = useTheme();
   const {width, height, column, band} = useLayout();
-  const frame = useCurrentFrame();
-  const grow = interpolate(frame, [0, 24], [0, 1], {...clamp, easing: easeOut});
   const side = (width - column) / 2;
-  const vertical: React.CSSProperties = {position: 'absolute', top: 0, width: 2, height: height * grow, background: t.line};
-  const horizontal: React.CSSProperties = {position: 'absolute', left: 0, height: 2, width: width * grow, background: t.line};
+  const vertical: React.CSSProperties = {position: 'absolute', top: 0, width: 2, height, background: t.line};
+  const horizontal: React.CSSProperties = {position: 'absolute', left: 0, height: 2, width, background: t.line};
   return (
     <AbsoluteFill style={{background: t.bg}}>
       {/* Bandes hachurées en haut et en bas, comme les séparateurs du site */}
@@ -63,7 +61,7 @@ const Grid: React.FC = () => {
             left: 0,
             width,
             height: band,
-            opacity: grow * 0.6,
+            opacity: 0.6,
             backgroundImage: `repeating-linear-gradient(315deg, ${t.line} 0, ${t.line} 2px, transparent 0, transparent 50%)`,
             backgroundSize: '14px 14px',
           }}
@@ -78,11 +76,12 @@ const Grid: React.FC = () => {
 };
 
 // Un plan : fondu d'entrée et de sortie, sur-titre en haut de la colonne, « Fig. n. » en bas
-const Plan: React.FC<{duration: number; label?: string; fig: number; children: React.ReactNode}> = ({duration, label, fig, children}) => {
+// `fadeIn={false}` pour le premier plan : la toute première image doit déjà montrer le nom
+const Plan: React.FC<{duration: number; label?: string; fig: number; fadeIn?: boolean; children: React.ReactNode}> = ({duration, label, fig, fadeIn = true, children}) => {
   const t = useTheme();
   const {width, column, band, pad} = useLayout();
   const frame = useCurrentFrame();
-  const opacity = Math.min(interpolate(frame, [0, 10], [0, 1], clamp), interpolate(frame, [duration - 8, duration], [1, 0], clamp));
+  const opacity = Math.min(fadeIn ? interpolate(frame, [0, 10], [0, 1], clamp) : 1, interpolate(frame, [duration - 8, duration], [1, 0], clamp));
   return (
     <AbsoluteFill style={{opacity, fontFamily: sans, color: t.fg}}>
       <div style={{position: 'absolute', top: band, bottom: band, left: (width - column) / 2, width: column, padding: pad, display: 'flex', flexDirection: 'column'}}>
@@ -116,17 +115,16 @@ const Arrow: React.FC<{start: number; size?: number; style?: React.CSSProperties
   );
 };
 
-// 1. Le monogramme se dessine, puis le nom
+// 1. Le nom est là dès la première image (elle sert d'image d'attente sur le site), le monogramme se dessine au-dessus
 const Intro: React.FC = () => {
   const t = useTheme();
   const {landscape} = useLayout();
-  const frame = useCurrentFrame();
   return (
-    <Plan duration={PLANS.intro} fig={1}>
-      <TsMark width={landscape ? 860 : 800} />
-      <div style={{...rise(frame, 40), display: 'flex', alignItems: 'center', gap: 22, marginTop: 36}}>
-        <Logo size={72} />
-        <span style={{fontSize: 68, fontWeight: 600, letterSpacing: -2, color: t.strong}}>TeeboStudio</span>
+    <Plan duration={PLANS.intro} fig={1} fadeIn={false}>
+      <TsMark width={landscape ? 900 : 860} />
+      <div style={{display: 'flex', alignItems: 'center', gap: 26, marginTop: 40}}>
+        <Logo size={96} />
+        <span style={{fontSize: 92, fontWeight: 600, letterSpacing: -3, color: t.strong}}>TeeboStudio</span>
       </div>
     </Plan>
   );

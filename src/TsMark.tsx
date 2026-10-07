@@ -51,14 +51,16 @@ for (const [x, y] of cells) {
 const edgePath = edges.join(' ');
 const VIEW = {x: -16, y: -168, w: 452, h: 254};
 
-// Les arêtes se tracent, les faces apparaissent, puis une lueur terracotta balaie le dessin de gauche à droite
+// Les arêtes se tracent, les faces apparaissent, puis une lueur terracotta balaie le dessin de gauche à droite.
+// Traits et hachures assez marqués pour rester visibles sur un petit écran.
 export const TsMark: React.FC<{width: number}> = ({width}) => {
   const t = useTheme();
   const frame = useCurrentFrame();
   const clamp = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
-  const draw = interpolate(frame, [0, 36], [1, 0], {...clamp, easing: Easing.out(Easing.cubic)});
-  const faces = interpolate(frame, [18, 44], [0, 1], clamp);
-  const glowX = interpolate(frame, [24, 84], [VIEW.x - 60, VIEW.x + VIEW.w + 60], {...clamp, easing: Easing.inOut(Easing.quad)});
+  // Tracé rapide : sur téléphone, on fait défiler vite, le dessin doit être lisible en moins d'une seconde
+  const draw = interpolate(frame, [0, 20], [1, 0], {...clamp, easing: Easing.out(Easing.cubic)});
+  const faces = interpolate(frame, [8, 24], [0, 1], clamp);
+  const glowX = interpolate(frame, [14, 80], [VIEW.x - 60, VIEW.x + VIEW.w + 60], {...clamp, easing: Easing.inOut(Easing.quad)});
 
   return (
     <svg viewBox={`${VIEW.x} ${VIEW.y} ${VIEW.w} ${VIEW.h}`} width={width} height={(width * VIEW.h) / VIEW.w} fill="none">
@@ -73,7 +75,7 @@ export const TsMark: React.FC<{width: number}> = ({width}) => {
       </defs>
       <g opacity={faces}>
         {sideFaces.map((points) => (
-          <polygon key={points} points={points} fill={t.bg} />
+          <polygon key={points} points={points} fill={t.panel} />
         ))}
         {topFaces.map((points) => (
           <g key={points}>
@@ -83,8 +85,8 @@ export const TsMark: React.FC<{width: number}> = ({width}) => {
         ))}
       </g>
       {/* pathLength = 1 : chaque arête se trace en même temps, comme un croquis */}
-      <path d={edgePath} pathLength={1} strokeDasharray={1} strokeDashoffset={draw} stroke={t.dim} strokeOpacity={0.7} strokeWidth="1" strokeLinecap="round" />
-      <path d={edgePath} stroke="url(#ts-glow)" strokeWidth="1.6" strokeLinecap="round" opacity={faces} />
+      <path d={edgePath} pathLength={1} strokeDasharray={1} strokeDashoffset={draw} stroke={t.muted} strokeWidth="1.4" strokeLinecap="round" />
+      <path d={edgePath} stroke="url(#ts-glow)" strokeWidth="2.2" strokeLinecap="round" opacity={faces} />
     </svg>
   );
 };

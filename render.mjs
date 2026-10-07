@@ -2,18 +2,20 @@
 import {execSync} from 'node:child_process';
 
 const RENDERS = {
-  // Pour teebostudio.fr : paysage, deux thèmes, deux langues
+  // Pour teebostudio.fr : deux thèmes et deux langues, en paysage (ordinateur) et en carré (téléphone)
   site: [
     ['Landscape', 'teebostudio-16x9'],
     ['LandscapeLight', 'teebostudio-16x9-light'],
     ['LandscapeEn', 'teebostudio-16x9-en'],
     ['LandscapeLightEn', 'teebostudio-16x9-light-en'],
-  ],
-  // Pour les réseaux : carré et vertical, en français et en anglais
-  social: [
     ['Square', 'teebostudio-1x1'],
-    ['Vertical', 'teebostudio-9x16'],
+    ['SquareLight', 'teebostudio-1x1-light'],
     ['SquareEn', 'teebostudio-1x1-en'],
+    ['SquareLightEn', 'teebostudio-1x1-light-en'],
+  ],
+  // Pour les réseaux : vertical, en français et en anglais (le carré est déjà rendu pour le site)
+  social: [
+    ['Vertical', 'teebostudio-9x16'],
     ['VerticalEn', 'teebostudio-9x16-en'],
   ],
 };
