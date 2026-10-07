@@ -30,10 +30,9 @@ Les codes du site : fond sombre chaud (ou crème en thème clair), terracotta, c
 
 - Les prix de départ sont affichés : c'est ce qui distingue le studio.
 - Le témoignage est un extrait, mot pour mot, de celui de Lucas Delcros publié sur le site.
-- Pas de musique dans cette version. Si une piste est ajoutée, le son reste coupé par défaut sur le site.
+- Pas de musique : la vidéo est muette (décision du 2026-10-07).
 - Formulation imposée : « Membre du programme Claude Startups », jamais « partenaire » ni « certifié ».
 
 ## À faire ensuite
 
 - Version d'une minute pour les réseaux.
-- Musique libre de droits, à choisir.
