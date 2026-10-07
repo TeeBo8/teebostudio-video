@@ -183,7 +183,7 @@ const Services: React.FC<{c: Content}> = ({c}) => {
 // 4. Quatre réalisations, chacune avec sa note manuscrite
 const Work: React.FC<{c: Content}> = ({c}) => {
   const t = useTheme();
-  const {landscape} = useLayout();
+  const {landscape, vertical} = useLayout();
   const frame = useCurrentFrame();
   const each = PLANS.work / c.projects.length;
   const index = Math.min(c.projects.length - 1, Math.floor(frame / each));
@@ -192,11 +192,13 @@ const Work: React.FC<{c: Content}> = ({c}) => {
   // Chaque projet entre par la droite et s'efface avant le suivant
   const enter = interpolate(local, [0, 14], [0, 1], {...clamp, easing: easeOut});
   const leave = index === c.projects.length - 1 ? 1 : interpolate(local, [each - 8, each], [1, 0], clamp);
-  const imageWidth = landscape ? 800 : 864;
+  // En carré, la place manque en hauteur : capture et textes plus petits pour ne pas recouvrir le sur-titre
+  const compact = !landscape && !vertical;
+  const imageWidth = landscape ? 800 : compact ? 640 : 864;
 
   return (
     <Plan duration={PLANS.work} label={c.workLabel} fig={4}>
-      <div style={{opacity: enter * leave, display: 'flex', flexDirection: landscape ? 'row' : 'column', alignItems: 'center', gap: landscape ? 56 : 40, width: '100%'}}>
+      <div style={{opacity: enter * leave, display: 'flex', flexDirection: landscape ? 'row' : 'column', alignItems: 'center', gap: landscape ? 56 : compact ? 22 : 40, width: '100%'}}>
         <div
           style={{
             width: imageWidth,
@@ -215,12 +217,12 @@ const Work: React.FC<{c: Content}> = ({c}) => {
           <div style={{fontFamily: mono, fontSize: 24, color: t.dim}}>
             {String(index + 1).padStart(2, '0')} / {String(c.projects.length).padStart(2, '0')}
           </div>
-          <div style={{fontSize: 64, fontWeight: 500, letterSpacing: -2, color: t.strong, marginTop: 10, lineHeight: 1.05}}>{project.title}</div>
-          <div style={{fontFamily: mono, fontSize: 24, color: t.muted, marginTop: 14}}>{project.kind}</div>
-          <div style={{display: 'flex', alignItems: 'flex-start', gap: 6, marginTop: 30, color: t.primary}}>
+          <div style={{fontSize: compact ? 54 : 64, fontWeight: 500, letterSpacing: -2, color: t.strong, marginTop: compact ? 6 : 10, lineHeight: 1.05}}>{project.title}</div>
+          <div style={{fontFamily: mono, fontSize: 24, color: t.muted, marginTop: compact ? 10 : 14}}>{project.kind}</div>
+          <div style={{display: 'flex', alignItems: 'flex-start', gap: 6, marginTop: compact ? 18 : 30, color: t.primary}}>
             {/* La flèche désigne la capture : à gauche en paysage, au-dessus sinon */}
             <Arrow start={16} style={{transform: landscape ? 'rotate(18deg)' : 'scaleY(-1) rotate(-8deg)', marginTop: -6}} />
-            <div style={{...rise(local, 22, 14, 12), fontFamily: hand, fontSize: 66, lineHeight: 0.95, transformOrigin: 'left', rotate: '-4deg'}}>
+            <div style={{...rise(local, 22, 14, 12), fontFamily: hand, fontSize: compact ? 56 : 66, lineHeight: 0.95, transformOrigin: 'left', rotate: '-4deg'}}>
               {project.note.map((line) => (
                 <div key={line}>{line}</div>
               ))}
