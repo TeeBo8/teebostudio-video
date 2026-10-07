@@ -13,7 +13,7 @@ Le déroulé plan par plan et les choix de contenu sont dans [BRIEF.md](BRIEF.md
 | Composition | Dimensions | Usage |
 |---|---|---|
 | `Landscape` | 1920 × 1080 | teebostudio.fr, YouTube, LinkedIn |
-| `Square` | 1080 × 1080 | fil LinkedIn, Instagram |
+| `Square` | 1080 × 1080 | teebostudio.fr sur téléphone, fil LinkedIn, Instagram |
 | `Vertical` | 1080 × 1920 | Reels, Shorts, stories |
 
 Chaque composition existe en quatre variantes, désignées par un suffixe : `Light` pour le thème clair, `En` pour l'anglais (`Landscape`, `LandscapeLight`, `LandscapeEn`, `LandscapeLightEn`). Toutes font 1 080 images à 30 images par seconde, sans son.
@@ -56,13 +56,13 @@ Il faut [Node.js](https://nodejs.org) 22 ou plus récent et [pnpm](https://pnpm.
 pnpm install
 pnpm studio          # aperçu dans le navigateur
 pnpm render          # toutes les vidéos, dans out/
-pnpm render:site     # les quatre vidéos paysage du site
-pnpm render:social   # carré et vertical, en français et en anglais
+pnpm render:site     # les huit vidéos du site (paysage et carré)
+pnpm render:social   # vertical, en français et en anglais
 ```
 
 ## Mise à jour du site
 
-À chaque modification poussée sur `main`, GitHub Actions rend les vidéos et les publie dans la release `video`. Le site n'y lit rien directement : les quatre fichiers `teebostudio-16x9*.mp4` sont à copier dans `public/videos/` du repo [Teebostudio](https://github.com/TeeBo8/Teebostudio), en changeant leur nom (`teebostudio-2026-…`) pour contourner le cache.
+À chaque modification poussée sur `main`, GitHub Actions rend les vidéos et les publie dans la release `video`. Le site n'y lit rien directement : les fichiers `teebostudio-16x9*.mp4` (ordinateur) et `teebostudio-1x1*.mp4` (téléphone) sont à copier dans `public/videos/` du repo [Teebostudio](https://github.com/TeeBo8/Teebostudio), en changeant leur nom (`teebostudio-v2-…`, puis `v3`) pour contourner le cache.
 
 ## Règles du projet
 

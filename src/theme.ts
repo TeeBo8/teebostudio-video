@@ -12,7 +12,7 @@ export const THEMES = {
     line: '#3a3a35',
     primary: '#d97757',
     onPrimary: '#262624',
-    hatch: 'rgba(250,249,245,0.14)',
+    hatch: 'rgba(250,249,245,0.26)',
     shadow: 'rgba(0,0,0,0.45)',
   },
   light: {
@@ -25,7 +25,7 @@ export const THEMES = {
     line: '#dedcd3',
     primary: '#b5553a',
     onPrimary: '#ffffff',
-    hatch: 'rgba(61,57,41,0.18)',
+    hatch: 'rgba(61,57,41,0.3)',
     shadow: 'rgba(61,57,41,0.16)',
   },
 };
