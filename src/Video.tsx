@@ -247,7 +247,7 @@ const Quote: React.FC<{c: Content}> = ({c}) => {
         {c.quoteClose}
       </div>
       <div style={{...rise(frame, 30), display: 'flex', alignItems: 'center', gap: 20, marginTop: 44}}>
-        <Img src={staticFile('cabinetdelcros-icon.png')} style={{width: 68, height: 68, borderRadius: 16, border: `2px solid ${t.line}`}} />
+        <Img src={staticFile('lesclefsducredit-icon.png')} style={{width: 68, height: 68, borderRadius: 16, border: `2px solid ${t.line}`}} />
         <div>
           <div style={{fontSize: 34, fontWeight: 500, color: t.strong}}>{c.quoteAuthor}</div>
           <div style={{fontFamily: mono, fontSize: 22, color: t.muted, marginTop: 4}}>{c.quoteRole}</div>
