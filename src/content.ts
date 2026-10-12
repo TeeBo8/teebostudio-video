@@ -11,10 +11,10 @@ export const CONTENT = {
     servicesLabel: 'Expertises',
     from: 'Dès',
     services: [
-      {name: 'Sites web', price: '300 €'},
-      {name: 'Applications web', price: '2 990 €'},
+      {name: 'Sites web', price: '690 €'},
+      {name: 'Visibilité Google & IA', price: '490 €'},
+      {name: 'Applications web', price: '4 990 €'},
       {name: 'Intégration IA', price: '490 €'},
-      {name: 'Vidéo motion design', price: '290 €'},
     ],
     workLabel: 'Réalisations',
     projects: [
@@ -42,10 +42,10 @@ export const CONTENT = {
     servicesLabel: 'Services',
     from: 'From',
     services: [
-      {name: 'Websites', price: '€300'},
-      {name: 'Web applications', price: '€2,990'},
+      {name: 'Websites', price: '€690'},
+      {name: 'Google & AI visibility', price: '€490'},
+      {name: 'Web applications', price: '€4,990'},
       {name: 'AI integration', price: '€490'},
-      {name: 'Motion design video', price: '€290'},
     ],
     workLabel: 'Work',
     projects: [

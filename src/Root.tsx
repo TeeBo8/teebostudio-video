@@ -5,6 +5,7 @@ import {DURATION, Video} from './Video';
 const FORMATS = [
   {id: 'Landscape', width: 1920, height: 1080},
   {id: 'Square', width: 1080, height: 1080},
+  {id: 'Portrait', width: 1080, height: 1350},
   {id: 'Vertical', width: 1080, height: 1920},
 ];
 

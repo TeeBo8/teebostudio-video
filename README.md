@@ -14,6 +14,7 @@ Le déroulé plan par plan et les choix de contenu sont dans [BRIEF.md](BRIEF.md
 |---|---|---|
 | `Landscape` | 1920 × 1080 | teebostudio.fr, YouTube, LinkedIn |
 | `Square` | 1080 × 1080 | teebostudio.fr sur téléphone, fil LinkedIn, Instagram |
+| `Portrait` | 1080 × 1350 | Fil Instagram (format 4:5) |
 | `Vertical` | 1080 × 1920 | Reels, Shorts, stories |
 
 Chaque composition existe en quatre variantes, désignées par un suffixe : `Light` pour le thème clair, `En` pour l'anglais (`Landscape`, `LandscapeLight`, `LandscapeEn`, `LandscapeLightEn`). Toutes font 1 080 images à 30 images par seconde, sans son.
@@ -57,7 +58,7 @@ pnpm install
 pnpm studio          # aperçu dans le navigateur
 pnpm render          # toutes les vidéos, dans out/
 pnpm render:site     # les huit vidéos du site (paysage et carré)
-pnpm render:social   # vertical, en français et en anglais
+pnpm render:social   # 4:5 et vertical, en français et en anglais
 ```
 
 ## Mise à jour du site
