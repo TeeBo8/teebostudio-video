@@ -1,5 +1,5 @@
 // Tous les textes de la vidéo, en français et en anglais.
-// Règle du site : uniquement des faits vérifiables (prix publics, chiffres des études de cas, témoignage réel).
+// Règle du site : uniquement des faits vérifiables (prix publics, chiffres des études de cas, témoignage réel, publié sur la fiche Google).
 
 export type Lang = 'fr' | 'en';
 
@@ -24,7 +24,8 @@ export const CONTENT = {
       {title: 'BeeDirectory', kind: 'Produit personnel · SaaS', note: ['7 clients', 'payants'], image: 'beedirectory-desktop.webp'},
     ],
     quoteLabel: 'Témoignage',
-    quote: 'Le site est moderne, rapide et exactement ce qu’il nous fallait pour développer notre activité.',
+    rating: '5,0 sur Google',
+    quote: 'Thibault a su créer mon site internet exactement comme je le souhaitais, et même au-delà des espérances.',
     quoteOpen: '« ',
     quoteClose: ' »',
     quoteAuthor: 'Christopher Tassin',
@@ -54,7 +55,8 @@ export const CONTENT = {
       {title: 'BeeDirectory', kind: 'Personal product · SaaS', note: ['7 paying', 'customers'], image: 'beedirectory-desktop.webp'},
     ],
     quoteLabel: 'Testimonial',
-    quote: 'The site is modern, fast and exactly what we needed to grow our business.',
+    rating: '5.0 on Google',
+    quote: 'Thibault managed to build my website exactly the way I wanted it, and even beyond my expectations.',
     quoteOpen: '“',
     quoteClose: '”',
     quoteAuthor: 'Christopher Tassin',

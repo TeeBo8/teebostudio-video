@@ -22,14 +22,14 @@ Les codes du site : fond sombre chaud (ou crème en thème clair), terracotta, c
 | 2 | 3–7 s | « Bonjour » s'écrit à la main, puis la présentation | Thibault Leture, développeur web freelance à Bordeaux |
 | 3 | 7–13 s | Les quatre expertises arrivent une à une | Sites web dès 300 € · Applications web dès 2 990 € · Intégration IA dès 490 € · Vidéo motion design dès 290 € |
 | 4 | 13–21 s | Quatre captures, chacune avec sa note manuscrite | Cabinet Delcros « 5 simulateurs de prêt » · Les Clefs du Crédit « 100/100 SEO sur PageSpeed » · NeuroBlend « code public sur GitHub » · BeeDirectory « 7 clients payants » |
-| 5 | 21–26 s | Un témoignage, avec le favicon du client | « Le site est moderne, rapide et exactement ce qu'il nous fallait pour développer notre activité. » — Christopher Tassin, Les Clefs du Crédit |
+| 5 | 21–26 s | Logo Google et 5 étoiles qui s'allument, puis un témoignage avec le favicon du client | 5,0 sur Google · « Thibault a su créer mon site internet exactement comme je le souhaitais, et même au-delà des espérances. » — Christopher Tassin, Les Clefs du Crédit |
 | 6 | 26–32 s | Trois engagements numérotés, puis la mention du programme | Prix fixé avant de commencer · Code et comptes à votre nom · Réponse sous 24 h · Membre du programme Claude Startups |
 | 7 | 32–36 s | Le bouton terracotta, puis l'adresse | Discutons de votre projet · teebostudio.fr |
 
 ## Décisions
 
 - Les prix de départ sont affichés : c'est ce qui distingue le studio.
-- Le témoignage est un extrait, mot pour mot, de celui de Christopher Tassin publié sur le site (Cabinet Delcros est déjà très présent sur l'accueil).
+- Le témoignage est un extrait, mot pour mot, de l'avis Google 5 étoiles de Christopher Tassin (2026-10-12), aussi publié sur le site (Cabinet Delcros est déjà très présent sur l'accueil). « 5,0 sur Google » est la note réelle de la fiche TeeboStudio.
 - Pas de musique : la vidéo est muette (décision du 2026-10-07).
 - Formulation imposée : « Membre du programme Claude Startups », jamais « partenaire » ni « certifié ».
 
