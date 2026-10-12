@@ -13,8 +13,10 @@ const RENDERS = {
     ['SquareEn', 'teebostudio-1x1-en'],
     ['SquareLightEn', 'teebostudio-1x1-light-en'],
   ],
-  // Pour les réseaux : vertical, en français et en anglais (le carré est déjà rendu pour le site)
+  // Pour les réseaux : 4:5 (fil Instagram) et vertical (Reels, Stories), en français et en anglais (le carré est déjà rendu pour le site)
   social: [
+    ['Portrait', 'teebostudio-4x5'],
+    ['PortraitEn', 'teebostudio-4x5-en'],
     ['Vertical', 'teebostudio-9x16'],
     ['VerticalEn', 'teebostudio-9x16-en'],
   ],

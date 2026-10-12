@@ -30,14 +30,15 @@ const rise = (frame: number, start: number, duration = 18, distance = 28): React
 const useLayout = () => {
   const {width, height} = useVideoConfig();
   const landscape = width > height;
-  const vertical = height > width;
+  // 9:16 (Reels, Stories) ; le 4:5 du fil Instagram est traité comme le carré, avec des bandes un peu plus hautes
+  const vertical = height >= 1600;
   return {
     width,
     height,
     landscape,
     vertical,
     column: landscape ? 1400 : 960,
-    band: landscape ? 150 : vertical ? 230 : 96,
+    band: landscape ? 150 : vertical ? 230 : height > width ? 150 : 96,
     pad: landscape ? 64 : 48,
   };
 };
